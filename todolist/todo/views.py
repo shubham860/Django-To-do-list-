@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,redirect
 from .models import List
 from .forms import ListForm
 from django.contrib import messages
@@ -11,7 +11,7 @@ def homepage(request):
             form.save()
             all_items = List.objects.all()
             messages.success(request,f"Item has been added to list!")
-            return render(request,'home.html',{'all_items':all_items})
+            return render(request,'main/home.html',{'all_items':all_items})
         else:
             all_items = List.objects.all()
-            return render(request,'home.html',{'all_items':all_items})
+            return render(request,'main/home.html',{'all_items':all_items})
